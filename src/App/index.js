@@ -1,14 +1,7 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
 import './styles.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        Hola
-      </div>
-    );
-  }
-}
+const App = ():React.Node => <div className="App">Hola</div>;
 
 export default App;
