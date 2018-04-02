@@ -1,16 +1,17 @@
 // @flow
 import * as React from 'react';
 import 'Components/Review.css';
+import type {ReviewProps} from 'Components/Review.types';
 
-const Review = ():React.Element<'figure'> =>
+const Review = ({album, alt, artist, url: src}: ReviewProps):React.Element<'figure'> =>
   <figure className="Review">
     <img
-      src="http://lorempixel.com/200/200/"
-      alt="portada of album"
+      alt={alt}
+      src={src}
       />
     <figcaption>
-      <h3>Nombre del artista</h3>
-      <p>Nombre del disco</p>
+      <h3>{artist}</h3>
+      <p>{album}</p>
     </figcaption>
   </figure>
 
