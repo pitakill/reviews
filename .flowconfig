@@ -7,5 +7,7 @@
 [lints]
 
 [options]
+module.name_mapper='^@\/\(.*\)$' -> '<PROJECT_ROOT>/src/\1'
+module.name_mapper='^Components\/\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'
 
 [strict]

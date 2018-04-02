@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import './Review.css';
+import 'Components/Review.css';
 
 const Review = ():React.Element<'figure'> =>
   <figure className="Review">

@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
-import './Grid.css';
-import Review from './Review';
+import 'Components/Grid.css';
+import Review from 'Components/Review';
 
 const Elements: Array<React.Element<typeof Review>> = Array.from(
   new Array(20),
