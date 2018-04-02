@@ -1,0 +1,14 @@
+.Review {
+  margin: 0;
+  text-align: center;
+}
+
+.Review h3,
+.Review p {
+  margin: 0;
+}
+
+.Review > img {
+  height: var(--img-size);
+  width: var(--img-size);
+}

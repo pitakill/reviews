@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
-import './styles.css';
+import Grid from '../components/Grid';
 
-const App = ():React.Node => <div className="App">Hola</div>;
+const App = ():React.Element<typeof Grid> => <Grid />
 
 export default App;
