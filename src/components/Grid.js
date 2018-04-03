@@ -2,23 +2,38 @@
 import * as React from 'react';
 import 'Components/Grid.css';
 import Review from 'Components/Review';
+import type {GridState} from 'Components/Grid.types';
+import {API_URL} from 'Constants';
 
-const Elements: Array<React.Element<typeof Review>> = Array.from(
-  new Array(20),
-  (_, i): React.Element<typeof Review> => {
-    const album = 'Nombre del álbum';
-    const alt = 'Portada del álbum';
-    const artist = 'Nombre del artista';
-    const key = `review${i + 1}`;
-    const url = 'http://lorempixel.com/200/200/'
-    return (
-      <Review
-        {...{album, alt, artist, key, url}}
-      />
-    );
+class Grid extends React.Component<{}, GridState> {
+  state = {
+    reviews: []
+  };
+
+  async componentDidMount(): Promise<fetch> {
+    try {
+      const dataRaw = await fetch(`${API_URL}/api/contents?type=Review`);
+      const {data: reviews} = await dataRaw.json();
+      this.setState({reviews});
+    } catch (e) {
+      console.error(e);
+    }
   }
-);
 
-const Grid = ():React.Element<'main'> => <main className="Grid">{Elements}</main>
+  render(): React.Element<'main'> {
+    const {reviews} = this.state;
+    return <main className="Grid">
+      {
+        reviews.map(({album, artist, uuid: key, portada: url}) => (
+          <Review
+            {...{album, artist, key}}
+            alt={`Cover of ${album} by ${artist}`}
+            url={API_URL + url}
+          />
+        ))
+      }
+    </main>
+  }
+}
 
 export default Grid;
