@@ -4,12 +4,14 @@ export type ReviewAPIResponse = {
   artist: string,
   portada: string,
   url: string,
-  uuid: string
+  uuid: string,
+  timestamp: string
 };
 
 export type ReviewProps = {
   album: string,
   alt?: string,
   artist: string,
-  url: string
+  url: string,
+  timestamp: string
 };

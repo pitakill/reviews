@@ -12,3 +12,12 @@
   height: var(--img-size);
   width: var(--img-size);
 }
+
+.Review p {
+  font-family: var(--font-secondary);
+}
+
+.Review time {
+  font-size: .75em;
+  opacity: .65;
+}

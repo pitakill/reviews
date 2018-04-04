@@ -1,9 +1,15 @@
 // @flow
 import * as React from 'react';
+import moment from 'moment-timezone';
+import localization from 'moment/locale/es-us';
 import 'Components/Review.css';
 import type {ReviewProps} from 'Components/Review.types';
 
-const Review = ({album, alt, artist, url: src}: ReviewProps):React.Element<'figure'> =>
+moment.updateLocale('es-us', localization);
+
+      //<time>{moment(timestamp).tz('GMT').startOf('day').fromNow()}</time>
+
+const Review = ({album, alt, artist, url: src, timestamp}: ReviewProps):React.Element<'figure'> =>
   <figure className="Review">
     <img
       alt={alt}
@@ -12,6 +18,7 @@ const Review = ({album, alt, artist, url: src}: ReviewProps):React.Element<'figu
     <figcaption>
       <h3>{artist}</h3>
       <p>{album}</p>
+      <time>{moment(timestamp).tz('America/Mexico_City').startOf('day').fromNow()}</time>
     </figcaption>
   </figure>
 

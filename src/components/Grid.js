@@ -12,7 +12,7 @@ class Grid extends React.Component<{}, GridState> {
 
   async componentDidMount(): Promise<fetch> {
     try {
-      const dataRaw = await fetch(`${API_URL}/api/contents?type=Review`);
+      const dataRaw = await fetch(`${API_URL}/api/contents?type=Review&count=-1`);
       const {data: reviews} = await dataRaw.json();
       this.setState({reviews});
     } catch (e) {
@@ -24,9 +24,9 @@ class Grid extends React.Component<{}, GridState> {
     const {reviews} = this.state;
     return <main className="Grid">
       {
-        reviews.map(({album, artist, uuid: key, portada: url}) => (
+        reviews.map(({album, artist, uuid: key, portada: url, timestamp}) => (
           <Review
-            {...{album, artist, key}}
+            {...{album, artist, key, timestamp}}
             alt={`Cover of ${album} by ${artist}`}
             url={API_URL + url}
           />

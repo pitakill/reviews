@@ -1,13 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Slabo+27px');
+
 body {
-  margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  margin: 0;
+  font-family: var(--font-primary);
 }
 
 :root {
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Slabo 27px', serif;
   --img-size: 200px;
-}
-
-* {
-  outline: 1px solid red;
 }
