@@ -5,6 +5,7 @@ export type ReviewAPIResponse = {
   portada: string,
   url: string,
   uuid: string,
+  slug: string,
   timestamp: string
 };
 

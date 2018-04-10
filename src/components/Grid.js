@@ -3,6 +3,7 @@ import * as React from 'react';
 import 'Components/Grid.css';
 import Review from 'Components/Review';
 import type {GridState} from 'Components/Grid.types';
+import {Link} from 'react-router-dom';
 import {API_URL} from 'Constants';
 
 class Grid extends React.Component<{}, GridState> {
@@ -23,15 +24,19 @@ class Grid extends React.Component<{}, GridState> {
   render(): React.Element<'main'> {
     const {reviews} = this.state;
     return <main className="Grid">
-      {
-        reviews.map(({album, artist, uuid: key, portada: url, timestamp}) => (
-          <Review
-            {...{album, artist, key, timestamp}}
-            alt={`Cover of ${album} by ${artist}`}
-            url={API_URL + url}
-          />
-        ))
-      }
+      { reviews.map(({album, artist, uuid: key, portada: url, timestamp, slug}) => {
+        const linkProps = {to: slug, key};
+        const reviewProps = {album, artist, timestamp};
+        return (
+          <Link {...linkProps}>
+            <Review
+              {...reviewProps}
+              alt={`Cover of ${album} by ${artist}`}
+              url={API_URL + url}
+            />
+          </Link>
+        )}
+      )}
     </main>
   }
 }

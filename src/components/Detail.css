@@ -1,0 +1,51 @@
+.Detail {
+  margin: 30px auto 0;
+  max-width: 900px;
+}
+
+.Detail h2 {
+  font-family: var(--font-secondary);
+}
+
+.Detail h2,
+.Detail h3 {
+  margin: 0;
+  text-align: center;
+}
+
+.Detail img {
+  height: var(--img-size);
+  width: var(--img-size);
+}
+
+.Detail > section {
+  align-items: center;
+  background-color: #eee;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  justify-items: center;
+  margin-bottom: 30px;
+  padding: 20px 0;
+}
+
+.Detail > section > span {
+  font-size: 3em;
+  position: relative;
+}
+
+.Detail > section > span:after {
+  --width: 50px;
+  border: 3px solid black;
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: var(--width);
+  left: calc(var(--width) / 4 * -1);
+  position: absolute;
+  top: 0;
+  width: var(--width);
+}
+
+.Detail > main {
+  margin: 0 100px;
+}

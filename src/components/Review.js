@@ -7,8 +7,6 @@ import type {ReviewProps} from 'Components/Review.types';
 
 moment.updateLocale('es-us', localization);
 
-      //<time>{moment(timestamp).tz('GMT').startOf('day').fromNow()}</time>
-
 const Review = ({album, alt, artist, url: src, timestamp}: ReviewProps):React.Element<'figure'> =>
   <figure className="Review">
     <img
